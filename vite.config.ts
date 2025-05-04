@@ -1,30 +1,20 @@
-import federation from "@originjs/vite-plugin-federation";
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import federation from '@originjs/vite-plugin-federation';
 
 export default defineConfig({
-    build: {
-        target: "esnext",
-        minify: false,
-        cssCodeSplit: false
-    },
-    plugins: [
-        react(),
-        federation({
-            name: "charactersRick",
-            filename: "remoteEntry.js",
-            exposes: {
-                "./CharactersList": "./src/App.tsx"
-            },
-            shared: ["react", "react-dom"]
-        })
-    ],
-    server: {
-        port: 3001
-    },
-    preview: {
-        port: 3001,
-        strictPort: true,
-        cors: true
-    }
+  plugins: [
+    react(),
+    federation({
+      name: 'charactersRick',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CharactersList': './src/CharactersList.tsx',
+      },
+      shared: ['react', 'react-dom'],
+    }),
+  ],
+  server: {
+    port: 3001,
+  },
 });

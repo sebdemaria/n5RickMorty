@@ -1,7 +1,4 @@
-import { useTranslation } from "react-i18next";
-
 export default function CharactersList() {
-    const { t } = useTranslation();
-
-    return <div>{t("title")}</div>;
-}
+    return <div>Rick and Morty characters will go here.</div>;
+  }
+  
