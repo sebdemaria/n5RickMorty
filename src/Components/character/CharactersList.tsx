@@ -3,9 +3,9 @@ import { RickAndMortyResponse } from "@/types/rickMortyAPITypes";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { CharacterCard } from "./ui/CharacterCard";
-import { Paginator } from "./ui/Paginator";
-import Spinner from "./ui/Spinner";
+import { Paginator } from "../ui/Paginator";
+import Spinner from "../ui/Spinner";
+import { CharacterCard } from "./CharacterCard";
 
 export default function CharactersList() {
     const { t } = useTranslation();
@@ -37,7 +37,7 @@ export default function CharactersList() {
     }, [page]);
 
     if (isLoading) return <Spinner />;
-    if (hasError || !data) return <p>{t("paginator.fetchError")}</p>;
+    if (hasError || !data) return <p>{t("characterList.error")}</p>;
 
     return (
         <Characters className='characters'>

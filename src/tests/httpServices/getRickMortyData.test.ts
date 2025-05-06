@@ -1,5 +1,26 @@
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock("@/httpServices/api/getHarryPotterData", () => {
+    return {
+        getRickMortyData: vi.fn((BASE_URL?: string, ENDPOINT?: string) => {
+            if (!BASE_URL || !ENDPOINT) {
+                return Promise.reject(
+                    new Error("No BASE_URL or ENDPOINT was provided")
+                );
+            }
+
+            Promise.resolve({
+                info: { count: 2, pages: 1, next: null, prev: null },
+                results: [
+                    { id: 1, name: "Rick Sanchez", image: "rick.png" },
+                    { id: 2, name: "Morty Smith", image: "morty.png" }
+                ]
+            });
+        })
+    };
+});
+
 import { getRickMortyData } from "@/httpServices/api/getRickMortyData";
-import { describe, expect, it } from "vitest";
 
 describe("getRickMortyData", () => {
     it("should throw if no BASE_URL or endpoint is provided", async () => {

@@ -5,5 +5,12 @@
     },
     "common": {
         "loading": "Cargando..."
+    },
+    "character": {
+        "status": "Estado",
+        "species": "Especie",
+        "gender": "Género",
+        "origin": "Origen",
+        "location": "Ubicación"
     }
 }

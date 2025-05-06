@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 interface Character {
@@ -23,6 +24,7 @@ interface CharacterCardProps {
 }
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+    const { t } = useTranslation();
     const { name, image, status, species, gender, origin, location } =
         character;
 
@@ -31,10 +33,20 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
             <Image className='character-card__image' src={image} alt={name} />
             <Content className='character-card__content'>
                 <Name className='character-card__name'>{name}</Name>
+
+                <TextLabel>{t("character.status")}</TextLabel>
                 <Text className='character-card__text'>{status}</Text>
+
+                <TextLabel>{t("character.species")}</TextLabel>
                 <Text className='character-card__text'>{species}</Text>
+
+                <TextLabel>{t("character.gender")}</TextLabel>
                 <Text className='character-card__text'>{gender}</Text>
+
+                <TextLabel>{t("character.origin")}</TextLabel>
                 <Text className='character-card__text'>{origin.name}</Text>
+
+                <TextLabel>{t("character.location")}</TextLabel>
                 <Text className='character-card__text'>{location.name}</Text>
             </Content>
         </Card>
@@ -58,6 +70,8 @@ const Image = styled.img`
     width: 100%;
     height: auto;
     min-height: 300px;
+    max-height: 390px;
+    overflow: hidden;
     object-fit: cover;
 `;
 
@@ -74,4 +88,11 @@ const Text = styled.p`
     font-size: 0.95rem;
     margin: 2px 0;
     color: #444;
+`;
+
+const TextLabel = styled.strong`
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 6px;
 `;

@@ -1,4 +1,4 @@
-import CharactersList from "@/components/CharactersList";
+import CharactersList from "@/components/character/CharactersList";
 import { render, screen, waitFor } from "@testing-library/react";
 import { Mock, vi } from "vitest";
 
