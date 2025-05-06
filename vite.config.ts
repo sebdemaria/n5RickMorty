@@ -27,6 +27,11 @@ export default defineConfig({
                     import: true,
                     version: "^18.2.0",
                     shareScope: "default"
+                },
+                "styled-components": {
+                    import: true,
+                    requiredVersion: "6.1.17",
+                    shareScope: "default"
                 }
             }
         })

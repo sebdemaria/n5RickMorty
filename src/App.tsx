@@ -1,5 +1,5 @@
 import { I18nextProvider } from "react-i18next";
-import CharactersList from "./components/CharactersList";
+import CharactersList from "./components/character/CharactersList";
 import i18n from "./i18n";
 
 function App() {
